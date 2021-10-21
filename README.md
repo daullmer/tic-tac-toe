@@ -23,6 +23,10 @@ To start the game, run `src/main.asm` in fpgrars.
 
 `src/main.asm`: Main file of program
 
+`src/draw/`: files for drawing things on the display
+
+`src/libs/`: support files for running the program in RARS or fpgrars
+
 `test/draw/`: unit tests for drawing objects
 
 
