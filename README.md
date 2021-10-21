@@ -1,40 +1,29 @@
-# CESP Programming Project Title
+# CESP Tic-Tac-Toe
 
-Simple overview of use/purpose.
-
+Simple Tic-Tac-Toe game.
 
 ## Authors
 
-Contributors names and contact info
+- Philip Prüßner
+- Victoria Strobel
+- David Ullmer
 
 ## Demo Video
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/-h3eH4ubuno/0.jpg)](http://www.youtube.com/watch?v=-h3eH4ubuno "Video Title")
+[![Video Thumbnai](http://img.youtube.com/vi/-h3eH4ubuno/0.jpg)](http://www.youtube.com/watch?v=-h3eH4ubuno "CESP Demo Video")
 
-Replace -h3eH4ubuno in the this .md by your YT video
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
-
-
 
 ### How to run
-
-Specify which file need to be used to run your program:
-e.g.
-run my_cool_program.asm in RARS
+To start the game, run `src/main.asm` in fpgrars.
 
 ## Files
-Describe the content of each file of your application: e.g.
 
-src/main.c   # Main file of program
+`src/main.asm`: Main file of program
 
-src/main.asm # compiled version of main.c for RV32IM
-
-src/featureA.asm # A specific feature called in main
-
-test/test1.asm - test9.asm # 9 unit tests for featureA
+`test/draw/`: unit tests for drawing objects
 
 
 ## Test
