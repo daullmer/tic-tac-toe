@@ -1,4 +1,8 @@
 draw_board_numbers:
+# save return address
+addi sp, sp, -4
+sw ra (sp)
+
 li a3, 0x00ff00 # set color to green
 # draw 1
 li a1, 2
@@ -243,3 +247,9 @@ li a1 178
 jal draw_pixel
 li a2 175
 jal draw_pixel
+
+# restore return address
+lw ra (sp)
+addi sp, sp, 4
+
+ret

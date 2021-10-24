@@ -8,8 +8,8 @@
   "arguments": [
     "0x1001a0a0-0x1001a0c0",
     "0x1004ebe0-0x1004ebf0",
-    "unittest_drawpixel.asm"
+    "utest_draw_pixel.asm"
   ],
   "description": "Draw Pixel Unit Test",
-  "expected_result": "RARS 1.5  Copyright 2003-2019 Pete Sanderson and Kenneth Vollmar\n\nInvalid Command Argument: unittest_drawpixel.asm\n"
+  "expected_result": "RARS 1.5  Copyright 2003-2019 Pete Sanderson and Kenneth Vollmar\n\n\nProgram terminated by calling exit\nMem[0x1001a0a0]\t0x00000000\t0x00000000\t0x00000000\t0x00000000\t\nMem[0x1001a0b0]\t0x00000000\t0x008db527\t0x00000000\t0x008db527\t\nMem[0x1001a0c0]\t0x00000000\t\nMem[0x1004ebe0]\t0x00000000\t0x00000000\t0x00000000\t0x00000000\t\nMem[0x1004ebf0]\t0x00000000\t\n"
 }
