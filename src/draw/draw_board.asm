@@ -24,8 +24,7 @@ hori_line_loop:
 		addi a2, a2, 1
 		blt a4, t2, line_height_loop
 	addi a5, a5, 1
-	addi a2, a2, SPACE_SIZE  # nächste linie SPACE_SIZE + 
-	addi a2, a2, BORDER_SIZE # BORDER_SIZE pixel weiter zeichnen
+	addi a2, a2, SPACE_SIZE  # nächste linie SPACE_SIZE pixel weiter zeichnen
 	blt a5, t3, hori_line_loop
 
 # vertikale linie
@@ -43,19 +42,10 @@ verti_line_loop:
 		addi a1, a1, 1
 		blt a4, t2, line_width_loop
 	addi a5, a5, 1
-	addi a1, a1, SPACE_SIZE  # nächste linie SPACE_SIZE + 
-	addi a1, a1, BORDER_SIZE # BORDER_SIZE pixel weiter zeichnen
+	addi a1, a1, SPACE_SIZE  # nächste linie SPACE_SIZE pixel weiter zeichnen
 	blt a5, t3, verti_line_loop
 
-
-
-
-
-
-
-#alt
-
-
-# zahlen schreiben
+jal draw_board_numbers
 
 .include "draw_pixel.asm"
+.include "draw_board_numbers.asm"
