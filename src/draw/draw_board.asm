@@ -4,6 +4,19 @@
 
 
 draw_board:
+# save variables
+addi sp, sp, -36
+sw ra 32(sp)
+sw a1 28(sp)
+sw a2 24(sp)
+sw a3 20(sp)
+sw a4 16(sp)
+sw a5 12(sp)
+sw t1 8(sp)
+sw t2 4(sp)
+sw t3 0(sp)
+
+
 li a3 0xffffff # store color white in a3
 addi t1, zero, 256 # t1=loop end größe
 addi t2, zero, BORDER_SIZE # t2=loop für dicke end größe
@@ -46,6 +59,19 @@ verti_line_loop:
 	blt a5, t3, verti_line_loop
 
 jal draw_board_numbers
+
+# restore variables
+lw ra 32(sp)
+lw a1 28(sp)
+lw a2 24(sp)
+lw a3 20(sp)
+lw a4 16(sp)
+lw a5 12(sp)
+lw t1 8(sp)
+lw t2 4(sp)
+lw t3 0(sp)
+addi sp, sp, 36
+ret
 
 .include "draw_pixel.asm"
 .include "draw_board_numbers.asm"
