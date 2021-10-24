@@ -19,7 +19,7 @@ draw_circle:
 # s2: y
 # s3: d
 
-addi sp, sp, -32
+addi sp, sp, -40
 sw a3,  (sp)
 sw a4, 4(sp)
 sw a5, 8(sp)
@@ -28,6 +28,8 @@ sw ra, 16(sp)
 sw s1, 20(sp) 
 sw s2, 24(sp)
 sw s3, 28(sp)
+sw t0, 32(sp)
+sw ra, 36(sp)
 
 
 mv s1, a5 # x = r
@@ -134,7 +136,9 @@ lw ra, 16(sp)
 lw s1, 20(sp) 
 lw s2, 24(sp)
 lw s3, 28(sp)
-addi sp, sp, 32
+lw t0, 32(sp)
+lw ra, 36(sp)
+addi sp, sp, 40
 ret
 
 
