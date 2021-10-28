@@ -21,8 +21,8 @@ game_loop:
 	# get input
 	jal input
 	# draw x or o on board
-	#jal draw_x
-	jal draw_o
+	jal draw_x
+	#jal draw_o
 	# save input to array
 	li a1, board		# array start address
 	mv a2, a3		# cell number from input
