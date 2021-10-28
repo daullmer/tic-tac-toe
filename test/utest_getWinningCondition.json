@@ -1,0 +1,22 @@
+{
+  "cesp_version": 1,
+  "executable": [
+    "/usr/bin/java",
+    "-jar",
+    "/Users/david/Dev/cesp/tools/rars/rars.jar"
+  ],
+  "arguments": [
+    "s2",
+    "s3",
+    "s4",
+    "s5",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "utest_getWinningCondition.asm"
+  ],
+  "description": "Get Winning Condtion Unit Test",
+  "expected_result": "RARS 1.5  Copyright 2003-2019 Pete Sanderson and Kenneth Vollmar\n\n\nProgram terminated by calling exit\ns2\t0x00000001\ns3\t0x00000003\ns4\t0x00000008\ns5\t0x00000006\ns6\t0x00000007\ns7\t0x00000005\ns8\t0x00000004\ns9\t0x00000002\ns10\t0x00000000\n"
+}

@@ -9,7 +9,7 @@ utest_draw_pixel:
 	li a1, 47
 	li a2, 40
 	li a3, 0x8db527
-	jal draw_pixel	
+	jal draw_pixel
 	
 
 	li a1, 100
