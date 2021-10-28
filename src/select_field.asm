@@ -3,19 +3,13 @@
 input_string: .string "Please input a number from 1 to 9 \n"
 wrong_input: .string "Your number was too high or too low! \n"
 
-.include "../tic-tac-toe/src/libs/cesplib_rars.asm"
-
 
 .text
 
-li s1, DISPLAY_WIDTH # initialize register s1 with the predefined display width
-li s2, DISPLAY_HEIGHT # initialize register s2 with the predefined display height
-
+input:
 li a1, 41
 li a2, 41
 
-
-input:
 la a0, input_string
 li a7, 4
 ecall # prints input_string to console
@@ -63,14 +57,10 @@ switch_start:
 	
 
 end:
-li a7, 10
-ecall
+ret
 
 errormsg:
 la a0, wrong_input
 li a7, 4
 ecall # pritns wrong_input to console
 j input
-
-
-.include "../tic-tac-toe/src/draw/draw_X.asm"

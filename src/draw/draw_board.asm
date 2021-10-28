@@ -74,5 +74,4 @@ lw t3 0(sp)
 addi sp, sp, 36
 ret
 
-.include "draw_pixel.asm"
 .include "draw_board_numbers.asm"

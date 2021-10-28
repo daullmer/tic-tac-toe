@@ -20,6 +20,8 @@ li s11, 2
 game_loop:
 	# get input
 	jal input
+	# draw x or o on board
+	jal draw_x
 	# save input to array
 	li a1, board		# array start address
 	mv a2, a0		# cell number from input
@@ -49,7 +51,9 @@ to_player1:
 
 
 .include "libs/cesplib_rars.asm"
+.include "draw/draw_pixel.asm"
 .include "draw/draw_board.asm"
 .include "store_in_array.asm"
-# .include "select_field.asm"
-# .include "check_game_end.asm"
+.include "select_field.asm"
+.include "draw/draw_X.asm"
+#.include "check_end_game.asm"

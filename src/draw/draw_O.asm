@@ -50,4 +50,3 @@ lw ra, 4(sp)
 addi sp, sp, 8
 ret
 
-.include "draw_circle.asm"

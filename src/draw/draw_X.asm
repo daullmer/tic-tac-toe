@@ -87,5 +87,3 @@ draw_x:
 	lw ra, 20(sp)
 	addi sp, sp, 24
 	ret
-
-.include "draw_pixel.asm"
