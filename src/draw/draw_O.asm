@@ -14,11 +14,11 @@ li a1, 50
 li a2, 50
 
 li a3, 0x0000FF
-jal draw_O
+jal draw_o
 li a7, 10
 ecall
 
-draw_O:
+draw_o:
 mv a3, a1
 mv a4, a2
 li a7, 0x0000FF # translate values
@@ -51,3 +51,4 @@ lw ra, 4(sp)
 addi sp, sp, 8
 ret
 
+.include "draw_circle.asm"

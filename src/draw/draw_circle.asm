@@ -57,7 +57,7 @@ _loop0:
 	
 	add a3, a3, s1 # xc + x
 	add a4, a4, s2 # yc + y
-	jal draw_pixel
+	jal draw_pixel2
 	#----------------------
 	lw a3,  (sp)
 	lw a4, 4(sp)
@@ -66,7 +66,7 @@ _loop0:
 
 	sub a3, a3, s1 # xc - x
 	add a4, a4, s2 # yc + y
-	jal draw_pixel
+	jal draw_pixel2
 	#----------------------	
 	lw a3,  (sp)
 	lw a4, 4(sp)
@@ -75,7 +75,7 @@ _loop0:
 
 	add a3, a3, s1 # xc + x
 	sub a4, a4, s2 # yc - y
-	jal draw_pixel
+	jal draw_pixel2
 	#----------------------
 	lw a3,  (sp)
 	lw a4, 4(sp)
@@ -84,7 +84,7 @@ _loop0:
 	
 	sub a3, a3, s1 # xc - x
 	sub a4, a4, s2 # yc - y
-	jal draw_pixel
+	jal draw_pixel2
 	
 	#----------------------
 	lw a3,  (sp)
@@ -94,7 +94,7 @@ _loop0:
 
 	add a3, a3, s2 # xc + y
 	add a4, a4, s1 # yc + x
-	jal draw_pixel
+	jal draw_pixel2
 	#----------------------		
 	lw a3,  (sp)
 	lw a4, 4(sp)
@@ -103,7 +103,7 @@ _loop0:
 	
 	sub a3, a3, s2 # xc - y
 	add a4, a4, s1 # yc + x
-	jal draw_pixel
+	jal draw_pixel2
 
 	#----------------------	
 	lw a3,  (sp)
@@ -114,7 +114,7 @@ _loop0:
 	
 	add a3, a3, s2 # xc + y
 	sub a4, a4, s1 # yc - x
-	jal draw_pixel
+	jal draw_pixel2
 
 	#----------------------	
 	lw a3,  (sp)
@@ -124,7 +124,7 @@ _loop0:
 	
 	sub a3, a3, s2 # xc - y
 	sub a4, a4, s1 # yc - x
-	jal draw_pixel
+	jal draw_pixel2
 
 _end_loop:
 ble s2,s1 _loop0
@@ -144,7 +144,7 @@ addi sp, sp, 40
 ret
 
 
-draw_pixel:
+draw_pixel2:
 # Creates colored pixel at position (x,y)  
 
 # Inputs

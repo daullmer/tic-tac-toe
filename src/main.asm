@@ -21,7 +21,8 @@ game_loop:
 	# get input
 	jal input
 	# draw x or o on board
-	jal draw_x
+	#jal draw_x
+	jal draw_o
 	# save input to array
 	li a1, board		# array start address
 	mv a2, a0		# cell number from input
@@ -56,4 +57,5 @@ to_player1:
 .include "store_in_array.asm"
 .include "select_field.asm"
 .include "draw/draw_X.asm"
+.include "draw/draw_O.asm"
 #.include "check_end_game.asm"
