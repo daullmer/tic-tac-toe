@@ -31,6 +31,8 @@ sw s3, 28(sp)
 sw t0, 32(sp)
 sw ra, 36(sp)
 
+li a5, 30
+
 
 mv s1, a5 # x = r
 li s2, 0 # y = 0

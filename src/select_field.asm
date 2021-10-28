@@ -7,6 +7,17 @@ wrong_input: .string "Your number was too high or too low! \n"
 .text
 
 input:
+
+addi sp, sp, -28
+sw a0, 0(sp)
+sw a1, 4(sp)
+sw a2, 8(sp)
+sw a7, 12(sp)
+sw t0, 16(sp)
+sw t1, 20(sp)
+sw t2, 24(sp)
+
+
 li a1, 41
 li a2, 41
 
@@ -57,6 +68,15 @@ switch_start:
 	
 
 end:
+
+lw a0, 0(sp)
+
+lw a7, 12(sp)
+lw t0, 16(sp)
+lw t1, 20(sp)
+lw t2, 24(sp)
+addi sp, sp, 28
+
 ret
 
 errormsg:

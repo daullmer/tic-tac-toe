@@ -46,6 +46,7 @@ jal draw_circle
 addi a4, a4, 1
 ble a4, t0, y_loop
 
+lw a3, 0(sp)
 lw ra, 4(sp)
 addi sp, sp, 8
 ret

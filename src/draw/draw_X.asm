@@ -17,13 +17,17 @@ draw_x:
 # Outputs: None
 
 
-	addi sp, sp, -24
+	addi sp, sp, -40
 	sw s0, 0 (sp)
 	sw s1, 4 (sp)
 	sw s2, 8 (sp)
 	sw a1, 12(sp)
 	sw a2, 16(sp)
-	sw ra, 20(sp)
+	sw t0, 20(sp)
+	sw t1, 24(sp)
+	sw t2, 28(sp)
+	sw t3, 32(sp)
+	sw ra, 36(sp)
 	
 	li a3, 0xFF0000
 	
@@ -84,6 +88,12 @@ draw_x:
 	lw s0, 0(sp)
 	lw s1, 4(sp)
 	lw s2, 8(sp)
-	lw ra, 20(sp)
-	addi sp, sp, 24
+	lw a1, 12(sp)
+	lw a2, 16(sp)
+	lw t0, 20(sp)
+	lw t1, 24(sp)
+	lw t2, 28(sp)
+	lw t3, 32(sp)
+	lw ra, 36(sp)
+	addi sp, sp, 40
 	ret
