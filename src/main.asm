@@ -28,11 +28,15 @@ game_loop:
 	draw_return: # after drawing on display continue here
 	# save input to array
 	li a1, board		# array start address
-	mv a2, a3		# cell number from input
-	mv a3, t0		# current player
+	mv a2, a3			# cell number from input
+	mv a3, t0			# current player
 	jal store_in_array
 	
 	# check if someone won
+	li a0, board	# array start address
+	#jal checkGameOutcome # TODO callee save register
+	beq a0, s10, winner_X
+	beq a0, s11, winner_O
 	
 	# remove one try
 	addi t1, t1, -1
@@ -62,6 +66,10 @@ dr_o:
 	jal draw_o
 	j draw_return
 
+winner_X:
+	j exit
+winner_O:
+	j exit
 
 .include "libs/cesplib_rars.asm"
 .include "draw/draw_pixel.asm"
@@ -70,4 +78,4 @@ dr_o:
 .include "select_field.asm"
 .include "draw/draw_X.asm"
 .include "draw/draw_O.asm"
-#.include "check_end_game.asm"
+.include "check_end_game.asm"
