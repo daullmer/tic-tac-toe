@@ -14,16 +14,13 @@ ecall
 #         a2 - y center coordinate
 #######
 draw_o:
-	addi sp, sp, -20
-	sw a3, 0(sp)
-	sw a4, 4(sp)
-	sw a7, 8(sp)
-	sw t0, 12(sp)
-	sw ra, 16(sp)
-
 mv a3, a1
 mv a4, a2
 li a7, 0x0000FF # translate values
+
+addi sp, sp, -8
+sw a3, 0(sp)
+sw ra, 4(sp)
 
 
 
@@ -45,11 +42,8 @@ addi a4, a4, 1
 ble a4, t0, y_loop
 
 lw a3, 0(sp)
-lw a4, 4(sp)
-lw a7, 8(sp)
-lw t0, 12(sp)
-lw ra, 16(sp)
-addi sp, sp, 20
+lw ra, 4(sp)
+addi sp, sp, 8
 ret
 
 .include "draw_circle.asm"

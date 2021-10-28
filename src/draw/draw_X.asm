@@ -14,6 +14,8 @@ ecall
 #         a2 - y center coordinate
 #######
 draw_x:
+
+
 	addi sp, sp, -44
 	sw s0, 0 (sp)
 	sw s1, 4 (sp)
