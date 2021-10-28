@@ -1,21 +1,34 @@
 
 
-.include "../libs/cesplib_rars.asm"
-
-
 .text
-li a3, 50
-li a4, 50
-li a5, 30
-li a7, 0x157BF1
+
+# Inputs
+#----------------------
+#    a1: x
+#    a2: y
+#    a3: color
+# Outputs: None
+
+
+li a1, 50
+li a2, 50
+
+li a3, 0x0000FF
 jal draw_O
 li a7, 10
 ecall
 
 draw_O:
+mv a3, a1
+mv a4, a2
+li a7, 0x0000FF # translate values
+
 addi sp, sp, -8
 sw a3, 0(sp)
 sw ra, 4(sp)
+
+
+
 
 addi a3, a3, -2
 addi t0, a3, 5

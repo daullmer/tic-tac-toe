@@ -1,4 +1,3 @@
-.include "../libs/cesplib_rars.asm"
 
 .text
 
@@ -25,7 +24,8 @@ draw_x:
 	sw a1, 12(sp)
 	sw a2, 16(sp)
 	sw ra, 20(sp)
-
+	
+	li a3, 0xFF0000
 	
 	li s0, DISPLAY_ADDRESS
 	li s1, DISPLAY_WIDTH
