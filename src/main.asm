@@ -20,18 +20,23 @@ li s11, 2
 game_loop:
 	# get input
 	jal input
+	
 	# draw x or o on board
-	#jal draw_x
-	jal draw_o
+	beq t0, s10, dr_x
+	beq t0, s11, dr_o
+	
+	draw_return: # after drawing on display continue here
 	# save input to array
 	li a1, board		# array start address
 	mv a2, a3		# cell number from input
 	mv a3, t0		# current player
 	jal store_in_array
+	
 	# check if someone won
 	
 	# remove one try
 	addi t1, t1, -1
+	
 	# switch current player
 	beq t0, s10, to_player2 # if current player is 1 and next player should be 2, jump
 	addi t0, t0, -1 # change from player 2 to player 1
@@ -49,6 +54,13 @@ ecall
 to_player2:
 	addi t0, t0, 1
 	j game_loop.end
+	
+dr_x:
+	jal draw_x
+	j draw_return
+dr_o:
+	jal draw_o
+	j draw_return
 
 
 .include "libs/cesplib_rars.asm"
