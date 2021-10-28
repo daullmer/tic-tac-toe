@@ -25,7 +25,7 @@ game_loop:
 	jal draw_o
 	# save input to array
 	li a1, board		# array start address
-	mv a2, a0		# cell number from input
+	mv a2, a3		# cell number from input
 	mv a3, t0		# current player
 	jal store_in_array
 	# check if someone won
@@ -33,8 +33,8 @@ game_loop:
 	# remove one try
 	addi t1, t1, -1
 	# switch current player
-	beq t0, s10, to_player1 # if current player is 2 and next player should be 1, jump
-	addi t0, t0, 1 # change from player 1 to player 2
+	beq t0, s10, to_player2 # if current player is 1 and next player should be 2, jump
+	addi t0, t0, -1 # change from player 2 to player 1
 	
 	# jump back to game_loop of we still have tries left
 	game_loop.end:
@@ -45,9 +45,9 @@ exit:
 li a7, 10
 ecall
 
-### switch to player 1
-to_player1:
-	addi t0, t0, -1
+### switch to player 2
+to_player2:
+	addi t0, t0, 1
 	j game_loop.end
 
 

@@ -1,4 +1,3 @@
-
 .text
 
 li a1, 50
@@ -8,26 +7,27 @@ jal draw_x
 li a7, 10
 ecall
 
+#######
+# DRAW X TO DISPLAY
+# ------------
+# inputs: a1 - x center coordinate
+#         a2 - y center coordinate
+#######
 draw_x:
-# Inputs
-#----------------------
-#    a1: x
-#    a2: y
-#    a3: color
-# Outputs: None
 
 
-	addi sp, sp, -40
+	addi sp, sp, -44
 	sw s0, 0 (sp)
 	sw s1, 4 (sp)
 	sw s2, 8 (sp)
 	sw a1, 12(sp)
 	sw a2, 16(sp)
-	sw t0, 20(sp)
-	sw t1, 24(sp)
-	sw t2, 28(sp)
-	sw t3, 32(sp)
-	sw ra, 36(sp)
+	sw a3, 20(sp)
+	sw t0, 24(sp)
+	sw t1, 28(sp)
+	sw t2, 32(sp)
+	sw t3, 36(sp)
+	sw ra, 40(sp)
 	
 	li a3, 0xFF0000
 	
@@ -85,15 +85,16 @@ draw_x:
 		ble a1, t0, x_width
 
 	
-	lw s0, 0(sp)
-	lw s1, 4(sp)
-	lw s2, 8(sp)
+	lw s0, 0 (sp)
+	lw s1, 4 (sp)
+	lw s2, 8 (sp)
 	lw a1, 12(sp)
 	lw a2, 16(sp)
-	lw t0, 20(sp)
-	lw t1, 24(sp)
-	lw t2, 28(sp)
-	lw t3, 32(sp)
-	lw ra, 36(sp)
-	addi sp, sp, 40
+	lw a3, 20(sp)
+	lw t0, 24(sp)
+	lw t1, 28(sp)
+	lw t2, 32(sp)
+	lw t3, 36(sp)
+	lw ra, 40(sp)
+	addi sp, sp, 44
 	ret

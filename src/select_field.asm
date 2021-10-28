@@ -5,17 +5,23 @@ wrong_input: .string "Your number was too high or too low! \n"
 
 
 .text
-
+#######
+# GET INPUT FROM CONSOLE
+# ------------
+# inputs: none
+# ------------
+# outputs: a1 - x center coordinate 
+#          a2 - y center coordinate
+#          a3 - selected field
+#######
 input:
 
-addi sp, sp, -28
+addi sp, sp, -20
 sw a0, 0(sp)
-sw a1, 4(sp)
-sw a2, 8(sp)
-sw a7, 12(sp)
-sw t0, 16(sp)
-sw t1, 20(sp)
-sw t2, 24(sp)
+sw a7, 4(sp)
+sw t0, 8(sp)
+sw t1, 12(sp)
+sw t2, 16(sp)
 
 
 li a1, 41
@@ -34,6 +40,7 @@ li t0, 9
 bgt a0, t0, errormsg # checks if input is in range
 
 addi a0, a0, -1
+mv a3, a0 # save input number -1 to a3 and return it
 
 li t2, 87
 switch_start:
@@ -70,12 +77,11 @@ switch_start:
 end:
 
 lw a0, 0(sp)
-
-lw a7, 12(sp)
-lw t0, 16(sp)
-lw t1, 20(sp)
-lw t2, 24(sp)
-addi sp, sp, 28
+lw a7, 4(sp)
+lw t0, 8(sp)
+lw t1, 12(sp)
+lw t2, 16(sp)
+addi sp, sp, 20
 
 ret
 

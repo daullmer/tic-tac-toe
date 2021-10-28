@@ -1,15 +1,4 @@
-
-
 .text
-
-# Inputs
-#----------------------
-#    a1: x
-#    a2: y
-#    a3: color
-# Outputs: None
-
-
 li a1, 50
 li a2, 50
 
@@ -18,6 +7,12 @@ jal draw_o
 li a7, 10
 ecall
 
+#######
+# DRAW O TO DISPLAY
+# ------------
+# inputs: a1 - x center coordinate
+#         a2 - y center coordinate
+#######
 draw_o:
 mv a3, a1
 mv a4, a2
