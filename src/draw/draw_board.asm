@@ -1,5 +1,3 @@
-.include "../libs/cesplib_rars.asm"
-
 #######
 # DRAW GAME BOARD INCLUDING NUMBERS
 # ------------
