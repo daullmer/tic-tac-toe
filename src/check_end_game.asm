@@ -1,4 +1,16 @@
 checkGameOutcome:                       # @checkGameOutcome
+	addi sp, sp, -40
+	sw a1, 0(sp)
+	sw a2, 4(sp)
+	sw a3, 8(sp)
+	sw a4, 12(sp)
+	sw a5, 16(sp)
+	sw a6, 20(sp)
+	sw a7, 24(sp)
+	sw t0, 28(sp)
+	sw s0, 32(sp)
+	sw ra, 36(sp) # callee save
+
         addi    sp, sp, -16
         sw      ra, 12(sp)                      # 4-byte Folded Spill
         sw      s0, 8(sp)                       # 4-byte Folded Spill
@@ -38,6 +50,19 @@ checkGameOutcome:                       # @checkGameOutcome
         lw      s0, 8(sp)                       # 4-byte Folded Reload
         lw      ra, 12(sp)                      # 4-byte Folded Reload
         addi    sp, sp, 16
+        
+        lw a1, 0(sp)
+	lw a2, 4(sp)
+	lw a3, 8(sp)
+	lw a4, 12(sp)
+	lw a5, 16(sp)
+	lw a6, 20(sp)
+	lw a7, 24(sp)
+	lw t0, 28(sp)
+	lw s0, 32(sp)
+	lw ra, 36(sp)
+	addi sp, sp, 40 # callee restore
+	
         ret
 allesBelegt:                            # @allesBelegt
         lw      a1, 0(a0)
@@ -149,4 +174,5 @@ getWinner:                              # @getWinner
         slli    a1, a1, 2
         add     a0, a0, a1
         lw      a0, 0(a0)
+        
         ret

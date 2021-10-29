@@ -1,7 +1,15 @@
+.data
+
+board: .word 0 0 0 0 0 0 0 0 0 0
+
+win_x: .string "X's Win!"
+win_o: .string "O's win!"
+
 .text
 # 1 = X    2 = O
 # adresse an der der speicherstand gespeichert ist
-.eqv board 0x10008000
+
+
 
 #######
 # MAIN METHOD
@@ -27,14 +35,14 @@ game_loop:
 	
 	draw_return: # after drawing on display continue here
 	# save input to array
-	li a1, board		# array start address
+	la a1, board		# array start address
 	mv a2, a3			# cell number from input
 	mv a3, t0			# current player
 	jal store_in_array
 	
 	# check if someone won
-	li a0, board	# array start address
-	#jal checkGameOutcome # TODO callee save register
+	la a0, board	# array start address
+	jal checkGameOutcome # TODO callee save register
 	beq a0, s10, winner_X
 	beq a0, s11, winner_O
 	
@@ -67,8 +75,14 @@ dr_o:
 	j draw_return
 
 winner_X:
+	la a0, win_x
+	li a7, 4
+	ecall
 	j exit
 winner_O:
+	la a0, win_o
+	li a7, 4
+	ecall
 	j exit
 
 .include "libs/cesplib_rars.asm"
