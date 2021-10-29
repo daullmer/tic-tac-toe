@@ -1,9 +1,10 @@
 .data
 
-board: .word 0 0 0 0 0 0 0 0 0 0
+board: .word 0 0 0 0 0 0 0 0 0
 
 win_x: .string "X's Win!"
 win_o: .string "O's win!"
+tie: .string "Tie!"
 
 .text
 # 1 = X    2 = O
@@ -57,7 +58,10 @@ game_loop:
 	# jump back to game_loop of we still have tries left
 	game_loop.end:
 	bnez t1, game_loop
-
+# Unentschieden
+la a0, tie
+li a7, 4
+ecall
 # Exit
 exit:
 li a7, 10
