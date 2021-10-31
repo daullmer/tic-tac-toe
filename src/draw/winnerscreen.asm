@@ -20,6 +20,9 @@ addi a1 zero 128
 addi a2 zero 132
 
 jal draw_x
+
+jal sound
+
 lw ra (sp)
 lw a1 4(sp)
 lw a2 8(sp)
@@ -40,13 +43,16 @@ addi a1 zero 128
 addi a2 zero 132
 
 jal draw_o
+
+jal sound
+
 lw ra (sp)
 lw a1 4(sp)
 lw a2 8(sp)
 addi sp sp 12
 ret
 
-
+.include "../sound_optimized.asm"
 .include "draw_X.asm"
 .include "draw_O.asm"
 .include "draw_winnerscreen.asm"
