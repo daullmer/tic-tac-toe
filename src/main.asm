@@ -114,3 +114,4 @@ winner_O:
 .include "draw/draw_winnerscreen.asm"
 .include "draw/draw_blackscreen.asm"
 .include "random_AI.asm"
+.include "draw/draw_lines.asm"
