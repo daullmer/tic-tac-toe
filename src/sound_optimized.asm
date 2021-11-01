@@ -1,21 +1,21 @@
 jal sound
 .data
 .L__const.main.pitches:
-  .word 64 # 0x40
-  .word 67 # 0x43
-  .word 71 # 0x47
-  .word 72 # 0x48
-  .word 71 # 0x47
-  .word 67 # 0x43
-  .word 64 # 0x40
-  .word 0 # 0x0
+  .word 72 
+  .word 67 
+  .word 67 
+  .word 69 
+  .word 67 
+  .word 71 
+  .word 72 
+  .word 0 
 
 .L__const.main.duration:
   .word 400 # 0x190
+  .word 200 # 0x190
+  .word 200 # 0x190
   .word 400 # 0x190
-  .word 400 # 0x190
-  .word 400 # 0x190
-  .word 400 # 0x190
+  .word 800 # 0x190
   .word 400 # 0x190
   .word 400 # 0x190
   .word 30 # 0x1e
@@ -49,7 +49,7 @@ LBB1_1: # =>This Inner Loop Header: Depth=1
   add a0, a0, t2
   lw a5, 0(a0)
   lw t3, 0(a1)
-  mv a2, a7
+  li a2, 0
   mv a3, t0
   mv a1, a5
   mv a0, t3
