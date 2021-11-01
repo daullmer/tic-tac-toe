@@ -1,11 +1,10 @@
 
-.text
-
-jal blackscreen
-li a7 10
-ecall
-
 blackscreen:
+# Creates a black rectangle to clear the screen
+# Inputs: None
+# Outputs: None
+	
+	# Save the callee save registers on the stack
 	addi sp sp -24
 	sw ra (sp)
 	sw a3, 4 (sp)
@@ -14,6 +13,7 @@ blackscreen:
 	sw a6, 16 (sp)
 	sw a7, 20 (sp)
 	
+	# Coordinates for the black rectangle
 	addi a3 zero 0
 	addi a4 zero 0
 	addi a5 zero 256
@@ -22,7 +22,7 @@ blackscreen:
 	
 	jal draw_rectangle
 	
-	
+	# Callee restore
 	lw ra (sp)
 	lw a3, 4 (sp)
 	lw a4, 8 (sp)
