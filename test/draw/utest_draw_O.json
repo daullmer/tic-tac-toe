@@ -1,0 +1,14 @@
+{
+  "cesp_version": 1,
+  "executable": [
+    "/usr/bin/java",
+    "-jar",
+    "/Users/david/Dev/cesp/tools/rars/rars.jar"
+  ],
+  "arguments": [
+    "0x1004fc40-0x1004fc70",
+    "utest_draw_O.asm"
+  ],
+  "description": "Draw O Unit Test",
+  "expected_result": "RARS 1.5  Copyright 2003-2019 Pete Sanderson and Kenneth Vollmar\n\n\nProgram terminated by calling exit\nMem[0x1004fc40]\t0x00000000\t0x00000000\t0x000000ff\t0x000000ff\t\nMem[0x1004fc50]\t0x000000ff\t0x000000ff\t0x000000ff\t0x000000ff\t\nMem[0x1004fc60]\t0x000000ff\t0x00000000\t0x00000000\t0x00000000\t\nMem[0x1004fc70]\t0x00000000\t\n"
+}
