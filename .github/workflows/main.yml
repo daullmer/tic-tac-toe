@@ -1,0 +1,22 @@
+name: Line Counter
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  line-count:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install line counter script
+        run: npm i cloc
+
+      - name: Count lines
+        run: src/linecount.sh
