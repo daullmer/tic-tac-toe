@@ -31,4 +31,7 @@ To start the game, open src/main.asm in [Rars](https://github.com/TheThirdOne/ra
 
 
 ## Test
-Screenshot that shows succedded (unit) tests 
+Successful general unit tests:
+![Successful general unit tests](documentation/successful_utests.png)
+Successful draw unit tests:
+![Successful draw unit tests](documentation/successful_draw_utests.png)

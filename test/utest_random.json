@@ -1,0 +1,13 @@
+{
+  "cesp_version": 1,
+  "executable": [
+    "/usr/bin/java",
+    "-jar",
+    "/Users/david/Dev/cesp/tools/rars/rars.jar"
+  ],
+  "arguments": [
+    "utest_random.asm"
+  ],
+  "description": "Random AI Unit Test",
+  "expected_result": "RARS 1.5  Copyright 2003-2019 Pete Sanderson and Kenneth Vollmar\n\n\nProgram terminated by calling exit\n"
+}
