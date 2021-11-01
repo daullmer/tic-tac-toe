@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install line counter script
-        run: npm i cloc
+        run: sudo npm i -g cloc
 
       - name: Count lines
-        run: src/linecount.sh
+        run: cd src && ./linecount.sh
