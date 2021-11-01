@@ -29,11 +29,12 @@ li s11, 2
 game_loop:
 	la a0, board
 	# get input
-	jal select_field
+	#jal select_field
 	
 	# draw x or o on board
 	beq t0, s10, dr_x
-	beq t0, s11, dr_o
+	#beq t0, s11, dr_o
+	beq t0, s11, dr_AI
 	
 	draw_return: # after drawing on display continue here
 	# save input to array
@@ -74,9 +75,15 @@ to_player2:
 	j game_loop.end
 	
 dr_x:
+	jal select_field
 	jal draw_x
 	j draw_return
 dr_o:
+	jal draw_o
+	j draw_return
+	
+dr_AI:
+	jal random_ai
 	jal draw_o
 	j draw_return
 
@@ -106,3 +113,4 @@ winner_O:
 .include "sound_optimized.asm"
 .include "draw/draw_winnerscreen.asm"
 .include "draw/draw_blackscreen.asm"
+.include "random_AI.asm"
