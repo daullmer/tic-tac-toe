@@ -83,11 +83,13 @@ winner_X:
 	la a0, win_x
 	li a7, 4
 	ecall
+	jal winner.x
 	j exit
 winner_O:
 	la a0, win_o
 	li a7, 4
 	ecall
+	jal winner.o
 	j exit
 
 .include "libs/cesplib_rars.asm"
@@ -96,5 +98,9 @@ winner_O:
 .include "store_in_array.asm"
 .include "select_field.asm"
 .include "draw/draw_X.asm"
+.include "draw/winnerscreen.asm"
 .include "draw/draw_O.asm"
 .include "check_end_game.asm"
+.include "sound_optimized.asm"
+.include "draw/draw_winnerscreen.asm"
+.include "draw/draw_blackscreen.asm"

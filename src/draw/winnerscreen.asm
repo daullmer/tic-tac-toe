@@ -14,6 +14,7 @@ sw ra (sp)
 sw a1 4(sp)
 sw a2 8(sp)
 
+jal blackscreen
 jal draw.winnerscreen
 
 addi a1 zero 128
@@ -37,6 +38,7 @@ sw ra (sp)
 sw a1 4(sp)
 sw a2 8(sp)
 
+jal blackscreen
 jal draw.winnerscreen
 
 addi a1 zero 128
@@ -52,8 +54,5 @@ lw a2 8(sp)
 addi sp sp 12
 ret
 
-.include "../sound_optimized.asm"
-.include "draw_X.asm"
-.include "draw_O.asm"
-.include "draw_winnerscreen.asm"
-.include "draw_pixel.asm"
+
+
