@@ -1,7 +1,7 @@
 .data
 
 input_string: .string "Please input a number from 1 to 9 \n"
-wrong_input: .string "Your number was too high or too low! \n"
+hilo_error_string: .string "Your number was too high or too low! \n"
 occupied: .string "Please select an empty field! \n"
 
 
@@ -100,9 +100,9 @@ addi sp, sp, 28
 ret
 
 hilo_error:
-la a0, wrong_input
+la a0, hilo_error_string
 li a7, 4
-ecall # prints wrong_input to console
+ecall # prints hilo_error_string to console
 j input
 
 occupied_error:

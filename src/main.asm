@@ -16,6 +16,10 @@ tie: .string "Tie!"
 # MAIN METHOD
 #######
 main:
+jal draw_start
+mv s9, a4 #stores gamemode selector in s9
+li a4, 0
+addi s9, s9, -1
 # Board aufbauen
 jal draw_board
 # initialize current player with 1 (=X)
@@ -33,8 +37,7 @@ game_loop:
 	
 	# draw x or o on board
 	beq t0, s10, dr_x
-	#beq t0, s11, dr_o
-	beq t0, s11, dr_AI
+	beq t0, s11, dr_o
 	
 	draw_return: # after drawing on display continue here
 	# save input to array
@@ -79,6 +82,8 @@ dr_x:
 	jal draw_x
 	j draw_return
 dr_o:
+	beqz s9, dr_AI
+	jal select_field
 	jal draw_o
 	j draw_return
 	
@@ -115,3 +120,4 @@ winner_O:
 .include "draw/draw_blackscreen.asm"
 .include "random_AI.asm"
 .include "draw/draw_lines.asm"
+.include "draw/draw_startscreen.asm"
