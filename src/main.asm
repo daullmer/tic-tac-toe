@@ -62,6 +62,7 @@ game_loop:
 la a0, tie
 li a7, 4
 ecall
+jal tiescreen
 # Exit
 exit:
 li a7, 10
@@ -101,6 +102,7 @@ winner_O:
 .include "draw/winnerscreen.asm"
 .include "draw/draw_O.asm"
 .include "check_end_game.asm"
+.include "draw/tiescreen.asm"
 .include "sound_optimized.asm"
 .include "draw/draw_winnerscreen.asm"
 .include "draw/draw_blackscreen.asm"
