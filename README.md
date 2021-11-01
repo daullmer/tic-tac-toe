@@ -1,6 +1,6 @@
 # CESP Tic-Tac-Toe
 
-Simple Tic-Tac-Toe game.
+Simple Tic-Tac-Toe game with support for one and two players.
 
 ## Authors
 
@@ -17,7 +17,7 @@ Simple Tic-Tac-Toe game.
 
 
 ### How to run
-To start the game, run `src/main.asm` in fpgrars.
+To start the game, open src/main.asm in [Rars](). Open the Bitmap display, set the pixel unit width and height to 2, the resolution to 512x512 and the Display Base Address to ox1004000 (Heap) and connect to programm. To interact with the game, follow the instructions in the Rars Run I/O console.
 
 ## Files
 
@@ -25,9 +25,9 @@ To start the game, run `src/main.asm` in fpgrars.
 
 `src/draw/`: files for drawing things on the display
 
-`src/libs/`: support files for running the program in RARS or fpgrars
+`src/libs/`: constant definitions for running the game in Rars.
 
-`test/draw/`: unit tests for drawing objects
+`test/draw/`: unit tests for drawing things on screen
 
 
 ## Test
