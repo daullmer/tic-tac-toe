@@ -1,11 +1,9 @@
-
-.text
-jal tiescreen
-li a7 10
-ecall
-
-
 tiescreen:
+# Create a tie screen
+# Inputs: None
+# Outputs: None
+
+	# Save the callee save registers on the stack
 	addi sp sp -20
 	sw ra (sp)
 	sw a1, 4 (sp)
@@ -13,15 +11,15 @@ tiescreen:
 	sw a3, 12 (sp)
 	sw a5, 16 (sp)
 	
-	
+	# Clear the screen
 	jal blackscreen
 	
-	
+	# Start coordinates
 	li a1 86
 	li a2 118
 	li a3 0xffffff
 	
-	#T
+	# Write a 'T' to display
 	li a5 24
 	jal draw_line_hori
 	addi a2 a2 1
@@ -44,7 +42,7 @@ tiescreen:
 	addi a1 a1 1
 	jal draw_line_verti
 	
-	#I
+	# Write a 'I' to display
 	addi a1 a1 17
 	addi a2 a2 -1
 	addi a5 a5 1
@@ -64,7 +62,7 @@ tiescreen:
 	addi a1 a1 1
 	jal draw_line_verti
 	
-	#E
+	# Write a 'E' to display
 	addi a1 a1 9
 	jal draw_line_verti
 	addi a1 a1 1
@@ -97,7 +95,7 @@ tiescreen:
 	addi a2 a2 1
 	jal draw_line_hori
 	
-	#!
+	# Write a '!' to display
 	addi a1 a1 20
 	addi a2 a2 -31
 	li a5 20
@@ -135,7 +133,7 @@ tiescreen:
 	addi a1 a1 -1
 	jal draw_line_verti
 	
-	
+	# Callee restore
 	lw ra (sp)
 	lw a1, 4 (sp)
 	lw a2, 8 (sp)
@@ -144,4 +142,6 @@ tiescreen:
 	
 	addi sp sp 20
 	ret
+
+
 
