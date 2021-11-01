@@ -1,18 +1,3 @@
-#   ___ ___ ___ ___   _    ___ ___ _____ _   _ ___ ___ 
-#  / __| __/ __| _ \ | |  | __/ __|_   _| | | | _ \ __|
-# | (__| _|\__ \  _/ | |__| _| (__  | | | |_| |   / _| 
-#  \___|___|___/_|   |____|___\___| |_|  \___/|_|_\___|
-#
-# Copyright 2021 Michael J. Klaiber
-
-########################################
-#CESP Exercise: Draw Rectangle
-########################################
-
-
-#STEP x: Implement draw_rectangle with the arguments as described below
-	# Hint: Don't forget the caller/callee save register conventions
-
 # Function to draw rectangle from position x1,y1 to x2,y2 with fill color c
 # a3: unsigned integer x1 -- left boundary of rectangle
 # a4: unsigned integer y1 -- top boundary of rectangle
