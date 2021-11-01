@@ -14,3 +14,6 @@ The cells are numbered in the follwing way:
 | 8         | 7, 8, 9                | horizontal row 3 |
 
 The numbers were chosen to make getting the winner from the array easy.
+
+# AI
+The one player mode uses a stupid AI which simply chooses a random cell using the Rars random syscall. If the cell is already occupied, the syscall is repeated until a not-occupied cell is found.
