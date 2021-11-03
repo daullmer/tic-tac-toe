@@ -1,5 +1,6 @@
 .data
 
+# 1 = X    2 = O
 board: .word 0 0 0 0 0 0 0 0 0
 
 win_x: .string "X's Win!"
@@ -7,17 +8,14 @@ win_o: .string "O's win!"
 tie: .string "Tie!"
 
 .text
-# 1 = X    2 = O
-# adresse an der der speicherstand gespeichert ist
-
-
-
 #######
 # MAIN METHOD
 #######
 main:
 jal draw_start
-mv s9, a4 #stores gamemode selector in s9
+# stores gamemode selector in s9
+# 0=>1 Player Mode    1=>2 Player Mode
+mv s9, a4
 li a4, 0
 addi s9, s9, -1
 # Board aufbauen
@@ -46,7 +44,7 @@ game_loop:
 	
 	# check if someone won
 	la a0, board	# array start address
-	jal checkGameOutcome # TODO callee save register
+	jal checkGameOutcome
 	beq a0, s10, winner_X
 	beq a0, s11, winner_O
 	
@@ -60,15 +58,9 @@ game_loop:
 	# jump back to game_loop of we still have tries left
 	game_loop.end:
 	bnez t1, game_loop
-# Unentschieden
-la a0, tie
-li a7, 4
-ecall
-jal tiescreen
-# Exit
-exit:
-li a7, 10
-ecall
+
+# Maximale Anzahl an Spielzügen erreicht --> Unentschieden!
+j winner_tie
 
 ### switch to player 2
 to_player2:
@@ -80,6 +72,7 @@ dr_x:
 	jal draw_x
 	j draw_return
 dr_o:
+	## wenn 1 player mode (s9=0) Zug nicht von Konsole sondern von AI
 	beqz s9, dr_AI
 	jal select_field
 	jal draw_o
@@ -92,6 +85,8 @@ dr_AI:
 	jal draw_o
 	j draw_return
 
+
+#### Ausgabe am Ende
 winner_X:
 	la a0, win_x
 	li a7, 4
@@ -104,6 +99,17 @@ winner_O:
 	ecall
 	jal winner.o
 	j exit
+winner_tie:
+	la a0, tie
+	li a7, 4
+	ecall
+	jal tiescreen
+	j exit
+
+## Programm mit Exit Code 0 beenden
+exit:
+	li a7, 10
+	ecall
 
 .include "libs/cesplib_rars.asm"
 .include "draw/draw_pixel.asm"

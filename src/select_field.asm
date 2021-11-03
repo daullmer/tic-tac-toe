@@ -82,6 +82,9 @@ li a7, 4
 ecall # prints occupied string to console
 j input
 
+
+
+
 #######
 # Transform cell position (0-8) into center coordinates
 # ------------
