@@ -4,7 +4,6 @@
 # inputs:  a0 - array address
 # ------------
 # outputs: a0 - random cell
-#          a3 - random cell
 #######
 random_ai:
 # callee save
@@ -17,11 +16,9 @@ sw ra, 16(sp)
 
 get_rand:
 ## random number rars ecall
-li a1, 10 # upper bound: 10
+li a1, 9 # generate numbers from 0 to 8. 9 is not a possible random number
 li a7, 42 # ecall identifier
 ecall
-# random number generator generates form 1-9, but we want 0-8
-addi a0, a0, -1
 
 # check if randomly generated field is already occupied
 # if yes, generate another number
@@ -39,4 +36,3 @@ lw ra, 16(sp)
 addi sp, sp, 20
 
 ret
-

@@ -91,9 +91,20 @@ dr_AI:
 		jal random_ai
 
 	continue:
+	# store a0 in stack
+	addi sp, sp, -4
+	sw a0, 0(sp)
+
+	# restore original a0 from stack
+	lw a0, 0(sp)
+
 	# convert cell to coordinates and draw on screen
 	jal cell_to_coordinates
 	jal draw_o
+
+	# restore original a0 from stack to a3 (the instructions at draw_return expect the cell at a3)
+	lw a3, 0(sp)
+	addi sp, sp, 4
 	j draw_return
 
 
