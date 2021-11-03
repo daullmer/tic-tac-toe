@@ -15,8 +15,6 @@ Simple Tic-Tac-Toe game with support for one and two players.
 
 
 ## Description
-
-
 ### How to run
 To start the game, open src/main.asm in [Rars](https://github.com/TheThirdOne/rars). Open the Bitmap display, set the pixel unit width and height to 2, the resolution to 512x512 and the Display Base Address to ox1004000 (Heap) and connect to programm. To interact with the game, follow the instructions in the Rars Run I/O console.
 

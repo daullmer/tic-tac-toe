@@ -17,3 +17,5 @@ The numbers were chosen to make getting the winner from the array easy.
 
 # AI
 The one player mode uses a stupid AI which simply chooses a random cell using the Rars random syscall. If the cell is already occupied, the syscall is repeated until a not-occupied cell is found.
+
+We didn't make the AI more intelligent, because the Tic Tac Toe is [is a solved game, with a forced draw assuming best play from both players](https://en.wikipedia.org/wiki/Tic-tac-toe) (the computer plays always at it's best --> the player can never win).
