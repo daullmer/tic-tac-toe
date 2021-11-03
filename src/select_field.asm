@@ -29,9 +29,6 @@ sw ra, 28(sp)
 
 input:
 
-li a1, 41
-li a2, 41
-
 la a0, input_string
 li a7, 4
 ecall # prints input_string to console
@@ -55,7 +52,7 @@ bnez t4, occupied_error
 
 mv a3, a0 # save input number -1 to a3 and return it
 
-jal switch_start
+jal cell_to_coordinates
 
 end:
 
@@ -71,29 +68,38 @@ addi sp, sp, 32
 
 ret
 
+## Prints Error if input is below 1 or above 9
 hilo_error:
 la a0, hilo_error_string
 li a7, 4
 ecall # prints hilo_error_string to console
 j input
 
+## Print Error if place is already occupied
 occupied_error:
 la a0, occupied
 li a7, 4
 ecall # prints occupied string to console
 j input
 
-switch_start:
-# input: a0: array-adress
-#output: a1: x address. a2: y address
+#######
+# Transform cell position (0-8) into center coordinates
+# ------------
+# inputs:  a0 - array position
+# ------------
+# outputs: a1 - x center coordinate 
+#          a2 - y center coordinate
+#######
+cell_to_coordinates:
+
+# callee save
 addi sp sp -28
 sw a0 0(sp)
-sw a1 4(sp)
-sw a2 12(sp)
-sw t0 16(sp)
-sw t1 20(sp)
-sw t2 24(sp)
+sw t0 4(sp)
+sw t1 8(sp)
+sw t2 16(sp)
 
+# load constants
 li t2, 87
 li a1, 41
 li a2, 41
@@ -126,9 +132,11 @@ li a2, 41
 	add a1, a1, t1
 
 switch_end:	
-sw a0 0(sp)
-sw t0 16(sp)
-sw t1 20(sp)
-sw t2 24(sp)
+
+# callee restore
+lw a0 0(sp)
+lw t0 4(sp)
+lw t1 8(sp)
+lw t2 16(sp)
 addi sp sp 28
 ret

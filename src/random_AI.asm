@@ -33,7 +33,7 @@ bnez t4, get_rand
 mv a3, a0
 li t2, 87
 
-jal switch_start
+jal cell_to_coordinates
 
 lw a0, 0(sp)
 lw a7, 4(sp)

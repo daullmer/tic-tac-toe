@@ -32,8 +32,6 @@ li s11, 2
 
 game_loop:
 	la a0, board
-	# get input
-	#jal select_field
 	
 	# draw x or o on board
 	beq t0, s10, dr_x
