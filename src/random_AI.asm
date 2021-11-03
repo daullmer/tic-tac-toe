@@ -23,8 +23,6 @@ ecall
 addi a0, a0, -1
 
 else_end2:
-li a1, 41
-li a2, 41
 
 lw t3, 0(sp)
 slli t4, a0, 2

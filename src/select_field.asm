@@ -95,6 +95,8 @@ sw t1 20(sp)
 sw t2 24(sp)
 
 li t2, 87
+li a1, 41
+li a2, 41
 
 	switch_13:
 	li t0, 2

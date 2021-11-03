@@ -93,7 +93,6 @@ dr_AI:
 	continue:
 	jal draw_o
 	j draw_return
-	
 
 winner_X:
 	la a0, win_x
