@@ -15,10 +15,10 @@ sw t4, 12(sp)
 sw ra, 16(sp)
 
 get_rand:
-## random number rars ecall
-li a1, 9 # generate numbers from 0 to 8. 9 is not a possible random number
-li a7, 42 # ecall identifier
-ecall
+    ## random number rars ecall
+    li a1, 9 # generate numbers from 0 to 8. 9 is not a possible random number
+    li a7, 42 # ecall identifier
+    ecall
 
 # check if randomly generated field is already occupied
 # if yes, generate another number

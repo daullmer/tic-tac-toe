@@ -3,9 +3,9 @@
 # 1 = X    2 = O
 board: .word 0 0 0 0 0 0 0 0 0
 
-win_x: .string "X's Win!"
-win_o: .string "O's win!"
-tie: .string "Tie!"
+win_x: .string "X's Win!\n\n"
+win_o: .string "O's win!\n\n"
+tie: .string "Tie!\n\n"
 
 .text
 #######

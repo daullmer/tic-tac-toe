@@ -1,0 +1,19 @@
+{
+  "cesp_version": 1,
+  "executable": [
+    "/usr/bin/java",
+    "-jar",
+    "/Users/david/Dev/cesp/tools/rars/rars.jar"
+  ],
+  "arguments": [
+    "s1",
+    "s2",
+    "s3",
+    "s4",
+    "s5",
+    "s6",
+    "utest_cell2coordinates.asm"
+  ],
+  "description": "Cell to Coordinates Unit Test",
+  "expected_result": "RARS 1.5  Copyright 2003-2019 Pete Sanderson and Kenneth Vollmar\n\n\nProgram terminated by calling exit\ns1\t0x00000029\ns2\t0x00000029\ns3\t0x00000080\ns4\t0x00000080\ns5\t0x000000d7\ns6\t0x000000d7\n"
+}
