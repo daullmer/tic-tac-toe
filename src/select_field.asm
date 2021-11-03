@@ -17,7 +17,7 @@ occupied: .string "Please select an empty field! \n"
 #######
 select_field:
 
-addi sp, sp, -28
+addi sp, sp, -32
 sw a0, 0(sp)
 sw a7, 4(sp)
 sw t0, 8(sp)
@@ -25,6 +25,7 @@ sw t1, 12(sp)
 sw t2, 16(sp)
 sw t3, 20(sp)
 sw t4, 24(sp)
+sw ra, 28(sp)
 
 input:
 
@@ -54,37 +55,7 @@ bnez t4, occupied_error
 
 mv a3, a0 # save input number -1 to a3 and return it
 
-li t2, 87
-switch_start:
-
-	switch_13:
-	li t0, 2
-	bgt a0, t0, switch_46
-	
-	mul t1, a0, t2
-	add a1, a1, t1
-	
-	j end
-	
-	switch_46:
-	li t0, 5
-	bgt a0, t0, switch_79
-	addi a0, a0, -3
-	
-	addi a2, a2, 87
-	mul t1, a0, t2
-	add a1, a1, t1
-	
-	j end
-	
-	switch_79:
-	addi a0, a0, -6
-	
-	addi a2, a2, 174
-	mul t1, a0, t2
-	add a1, a1, t1
-	
-	
+jal switch_start
 
 end:
 
@@ -95,7 +66,8 @@ lw t1, 12(sp)
 lw t2, 16(sp)
 lw t3, 20(sp)
 lw t4, 24(sp)
-addi sp, sp, 28
+lw ra, 28(sp)
+addi sp, sp, 32
 
 ret
 
@@ -110,3 +82,51 @@ la a0, occupied
 li a7, 4
 ecall # prints occupied string to console
 j input
+
+switch_start:
+# input: a0: array-adress
+#output: a1: x address. a2: y address
+addi sp sp -28
+sw a0 0(sp)
+sw a1 4(sp)
+sw a2 12(sp)
+sw t0 16(sp)
+sw t1 20(sp)
+sw t2 24(sp)
+
+li t2, 87
+
+	switch_13:
+	li t0, 2
+	bgt a0, t0, switch_46
+	
+	mul t1, a0, t2
+	add a1, a1, t1
+	
+	j switch_end
+	
+	switch_46:
+	li t0, 5
+	bgt a0, t0, switch_79
+	addi a0, a0, -3
+	
+	addi a2, a2, 87
+	mul t1, a0, t2
+	add a1, a1, t1
+	
+	j switch_end
+	
+	switch_79:
+	addi a0, a0, -6
+	
+	addi a2, a2, 174
+	mul t1, a0, t2
+	add a1, a1, t1
+
+switch_end:	
+sw a0 0(sp)
+sw t0 16(sp)
+sw t1 20(sp)
+sw t2 24(sp)
+addi sp sp 28
+ret

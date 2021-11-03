@@ -89,19 +89,11 @@ dr_o:
 	
 dr_AI:
 	jal getBlockingMove
-	mv a0, s5
-	mv a3, s5
-	li s5, 999
-	bne s5, a0, swit_sl
-	la a0, board
 	jal random_ai
 	continue:
 	jal draw_o
 	j draw_return
 	
-swit_sl:
-	jal switch_start
-	j continue
 
 winner_X:
 	la a0, win_x
