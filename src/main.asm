@@ -80,8 +80,19 @@ dr_o:
 	
 dr_AI:
 	jal getBlockingMove
-	jal random_ai
+
+	## check if getBlockingMove returned 999 and no move can be blocked right now
+	li t1, 999
+	beq s5, t1, call.random_ai
+	mv a0, s5
+	j continue
+
+	call.random_ai:
+		jal random_ai
+
 	continue:
+	# convert cell to coordinates and draw on screen
+	jal cell_to_coordinates
 	jal draw_o
 	j draw_return
 
