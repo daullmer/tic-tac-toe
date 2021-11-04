@@ -13,9 +13,24 @@ The cells are numbered in the follwing way:
 | 7         | 2, 5, 8                | vertical column 2 |
 | 8         | 7, 8, 9                | horizontal row 3 |
 
-The numbers were chosen to make getting the winner from the array easy.
+The numbers were chosen to make getting the winner from the array easy. Getting an array value like: `board[winningCondition]` will always return the winner of the game.
 
 # AI
-The one player mode uses a stupid AI which simply chooses a random cell using the Rars random syscall. If the cell is already occupied, the syscall is repeated until a not-occupied cell is found.
+Tic Tac Toe is [is a solved game, with a forced draw assuming best play from both players](https://en.wikipedia.org/wiki/Tic-tac-toe), meaning the human player could never win the 1 player mode, even if they always make the correct move.
 
-We didn't make the AI more intelligent, because the Tic Tac Toe is [is a solved game, with a forced draw assuming best play from both players](https://en.wikipedia.org/wiki/Tic-tac-toe) (the computer plays always at it's best --> the player can never win).
+## Description
+Because of that the game has a worse, two-staged AI. After every move of the human player, the first AI in file `ai.c` i.e. `ai.asm` checks if a player has a player has two symbols in the same row, column or diagonally. IF that is the case, the AI will return the value of the third cell in that row/column/diagonal.
+
+This has the effect of either blocking a winning move of the human player, or connecting three cells and the AI winning the game.
+
+If no such moves could be determined, the first AI returns 999, signaling no smart move availabe. A random number generator using the Rars syscall generates numbers from 0 to 8 until the cell with the generated number is empty.
+
+## Limitations of the AI
+Below are two (intentional) limitations of our AI which make it easier for the human player to win in 1 player mode.
+
+- A side effect of the smart AI not checking if the two connected cells are from the human or AI player is, that if there is a state of the game where the AI could win in one move or block the human player in the next move, it may not always choose the winning move.<br><br>
+Every empty cell is checked, starting from the top left. This means that if the cell which would be blocking for the human player has a lower cell number than the cell resulting in the AI's win, the AI always blocks the human player's next move.
+<br><br>
+Diagonal connections are checked at the very end.
+
+- The AI only consideres the next move. It does not look multiple moves ahead.
