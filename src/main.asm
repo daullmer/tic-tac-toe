@@ -82,8 +82,8 @@ dr_AI:
 	jal getBlockingMove
 
 	## check if getBlockingMove returned 999 and no move can be blocked right now
-	li t1, 999
-	beq s5, t1, call.random_ai
+	li t2, 999
+	beq s5, t2, call.random_ai
 	mv a0, s5
 	j continue
 

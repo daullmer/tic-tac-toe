@@ -19,7 +19,7 @@ The numbers were chosen to make getting the winner from the array easy. Getting 
 Tic Tac Toe is [is a solved game, with a forced draw assuming best play from both players](https://en.wikipedia.org/wiki/Tic-tac-toe), meaning the human player could never win the 1 player mode, even if they always make the correct move.
 
 ## Description
-Because of that the game has a worse, two-staged AI. After every move of the human player, the first AI in file `ai.c` i.e. `ai.asm` checks if a player has a player has two symbols in the same row, column or diagonally. IF that is the case, the AI will return the value of the third cell in that row/column/diagonal.
+Because of that the game has a worse, two-staged AI. After every move of the human player, the first AI in file `ai.c` i.e. `ai.asm` checks if a player has two symbols in the same row, column or diagonally. IF that is the case, the AI will return the value of the third cell in that row/column/diagonal.
 
 This has the effect of either blocking a winning move of the human player, or connecting three cells and the AI winning the game.
 
